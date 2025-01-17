@@ -1,0 +1,120 @@
+<body>
+
+    <div class="conteiner-all">
+
+        <div class="contacts-container-chat" id="conectados-container">
+            <h2>Conectados</h2>
+            <ul class="contacts-list-chat">
+                {{#if conectados}}
+                {{#each this.conectados}}
+                <li class="contact-item-chat" code={{this.code}}>
+                    <img src="https://via.placeholder.com/50" alt="Foto de perfil">
+
+                    <button class="conectados-button" id="chat" data-user-email= {{this.email}} nombre={{this.nombre}}  apellido={{this.apellido}} code={{this.code}}>
+                        <h4>{{this.nombre}} {{this.apellido}}</h4>
+                    </button>
+                    <div class="aviso-mensaje oculto" code={{this.code}}>
+                        <p class="aviso-letra" >Mensaje</p>
+                    </div>
+                </li>
+                {{/each}}
+                {{else}}
+                <p class="no-contactos">No hay contactos en linea </p>
+                {{/if}}
+            </ul>
+        </div>
+        <div class="chat-container" id="chat-container">
+
+            <div class="chat-header">
+                
+            </div>
+            <div class="chat-messages" id="mensajes">
+
+            </div>
+            <div class="chat-input">
+                <input type="text" id="mensaje" placeholder="Escribe un mensaje..." id="chatInput">
+                <button id="sendButton">Enviar</button>
+            </div>
+        </div>
+        <div class="contacts-container oculto" id="contact-container">
+            <h2>Contactos</h2>
+            {{#if contactos}}
+            <ul class="contacts-list">
+                {{#each this.contactos}}
+                <li class="contact-item">
+                    <img src="https://via.placeholder.com/50" alt="Foto de perfil" class="contact-pic">
+                    <div class="contact-info">
+                        <h4>{{this.nombre}} {{this.apellido}}</h4>
+                        <span class="status online">{{this.status}}</span>
+                    </div>
+                </li>
+
+                {{/each}}
+                {{else}}
+                <p class="no-contactos">No tienes ningun contacto aun! </p>
+                {{/if}}
+
+            </ul>
+        </div>
+        <div class="profile-container oculto" id="profile-container">
+            <div class="profile-header">
+                <img src="https://via.placeholder.com/150" alt="Foto de perfil" class="profile-pic">
+                <h2 class="username">{{this.user.nombre}} {{this.user.apellido}}</h2>
+                <p class="bio">Desarrollador web apasionado por la tecnología y la creación de experiencias digitales.
+                    #coding #tech</p>
+            </div>
+
+
+        </div>
+        <div class="container-solicitudes oculto" id="solicitud-container">
+
+            <div class="solicitudes-container">
+                <h2>Solicitudes de amistad</h2>
+                <div>
+                    {{#if solicitudPendientes}}
+                    {{#each this.solicitudPendientes}}
+                    <div class="solicitud" id="{{this._id}}">
+                        <span class="solicitante-nombre">{{this.usuario_solicitante}}</span>
+                        <div class="botones">
+                            <button class="aceptar btnOK" product-id="{{this._id}}">Aceptar</button>
+                            <button class="rechazar">Rechazar</button>
+                        </div>
+                    </div>
+                    {{/each}}
+                    {{else}}
+                    <div style="text-align: center;">
+                        <p>
+                            No tienes solicitudes
+                        </p>
+                    </div>
+                    {{/if}}
+                </div>
+                <!-- Puedes añadir más solicitudes de la misma forma -->
+                <div class="buscador-container">
+                    <div id="errores_buscador">
+
+                    </div>
+                    <h2>Buscar Contacto</h2>
+
+                    <div class="buscador">
+                        <input type="text" class="contenido" placeholder="Buscar por nombre" id="searchInput">
+                        <button id="searchButton">Buscar</button>
+                    </div>
+
+                    <!-- Resultados de la búsqueda -->
+                    <div class="resultados oculto">
+                        <div class="negativo oculto">
+
+                            <p>
+                                Usuario no encontrado
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/chat.js"></script>
+</body>

@@ -1,0 +1,88 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #3f2b96, #a8c0ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container-registrer {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Estilos del título */
+.container-registrer h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilos del formulario */
+.form-register {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos de las etiquetas */
+.form-register label {
+    margin-bottom: 5px;
+    color: #333;
+    text-align: left;
+    font-size: 14px;
+}
+
+/* Estilos de los campos de entrada */
+.form-register input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilos del botón */
+.btn-submit {
+    background-color: #007bff; /* Azul */
+    margin-bottom: 10px ;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+#inicio{
+    background-color: red;
+}
+
+/* Efecto hover en el botón */
+.btn-submit:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+}
+
+/* Estilo responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    .form-register input {
+        font-size: 14px;
+    }
+
+    .btn-submit {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
